@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+     <script src="https://kit.fontawesome.com/d7ccb43ad1.js" crossorigin="anonymous"></script>
     <title>Login</title>
 </head>
 
 <body>
+
+    <div class="auth-container">
+  <div class="auth-card">
     <h1>Login</h1>
 
-    <form action="/login">
-        <input type="text">
-        <input type="text">
+     <!--Error Meeesages-->
+                        <% if (locals.messages.errors) { %>
+                            <% messages.errors.forEach( el => { %>
+                                <div class="alert alert-danger"><%= el.msg %></div>
+                            <% }) %>    
+                        <% } %>
+                        <% if (locals.messages.info) { %>
+                            <% messages.info.forEach( el => { %>
+                                <div class="alert alert-info"><%= el.msg %></div>
+                            <% }) %>    
+                        <% } %>
+                        <!---->
+
+    <form action="/login" method="POST">
+        <input type="text" placeholder="Email" name="email">
+        <input type="password" placeholder="Password" name="password">
         <button type="submit">Login</button>
     </form>
+    </div>
+    </div>
 </body>
 </html>
