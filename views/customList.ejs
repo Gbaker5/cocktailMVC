@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/d7ccb43ad1.js" crossorigin="anonymous"></script>
+
+    <title><%= list.name %></title>
+</head>
+<body>
+  
+    <div class="container">
+
+    
+    <nav class="topNav">
+        <a href="/home">Home</a>
+        <a href="/myLists">My Lists</a>
+        <a href="/favorites">Favorites</a>
+    </nav>
+    
+    <div class="topList-ct">
+         <h2><%= list.name %></h2>
+    </div>
+     
+    <div class="cocktails-ct">
+        <div id="cocktail-scrollbox">
+
+            <!--for loop start-->
+            <%for(let i=0; i <drinks.length; i++){ %>
+                <div class="cocktailBox" id="cb<%=i%>"> <!--loop-->
+                    <div class="inDivLeft" id="inDivLeft<%=i%>"><!--loop-->
+                        <img src="<%= drinks[i].image %>" alt="" class="cocktailImg">
+                        <div class="interaction-ct">
+                            
+                                <button  class="favorite-btn <%=(drinks[i].favorited ? 'favorited' : '')%>"  data-drink-id="<%=drinks[i].idDrink%>"  type="button"><i class="fa-solid fa-martini-glass-empty"></i></button>
+                            
+
+                          
+                                <button  class="list-btn" type="submit"><i class="fa-regular fa-rectangle-list"></i></button>
+                                
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="inDivRight" id="inDivRight<%=i%>" ><!--loop-->
+
+                        <!--I want to click the list button and the drink info disappears/animation swipe left-->
+                        <!--Then bring up user lists with update fetch links so the page doesnt reload-->
+                        <!--After choosing a list the animation scrolls back over to reveal the drink info-->
+
+                         <div class="drinkList-ct ">
+                            <form action="/myLists" method="GET">
+                                <button type="submit" class="create-list-btn">Create New List <i class="fa-solid fa-square-plus"></i> </button>
+                            </form>
+                            <%for(let j=0; j<drinkLists.length; j++){%>
+                                <button 
+                                  type="button"
+                                  class="drinkList-btn <%= drinkLists[j].drinkSet.has(drinks[i].idDrink) ? 'in-list' : '' %>"
+                                  data-drink-id="<%= drinks[i].idDrink %>"
+                                  data-list-id="<%= drinkLists[j]._id %>"
+                                  >
+
+                                  <%= drinkLists[j].name %>
+
+                                </button>
+                           <% } %>
+
+                        </div>
+
+
+                        <div class="drinkInfo">
+                             <h2><%= drinks[i].name %></h2>
+                            <p>Alcohol Content: <%= drinks[i].alcoholic %></p>
+                            <p>Suggested Glass: <%= drinks[i].glass %></p>
+                       
+                        <ul>
+                            <% drinks[i].ingredients.forEach(ingredient => { %>
+                                <li><%= ingredient.ingredient %> [<%= ingredient.measurement %>]</li>
+                            <% }); %>
+                        </ul>
+                        <p>Instructions: <%= drinks[i].instructions %></p>
+                        </div>
+                       
+                    </div>
+
+                </div>
+            <%}%>
+            <!--for loop end-->
+
+
+
+        </div>
+    </div>
+      
+      
+
+
+     
+
+    </div>
+
+       <script src="/js/main.js"></script>
+
+</body>
+</html>
