@@ -9,16 +9,28 @@
 </head>
 <body>
     <div class="container">
+    
+        <div class="mobile-header">
+            <span class="menu-btn"><i class="fa-solid fa-bars-staggered"></i></span>
+        </div>
+    
 
-   <nav class="mobilenav">
-        <a href="/logout">Logout</a>
+   <nav id="mobilenav-ct" class="hidden">
+        
+        <ul id="mobilenav" class="hidden">
+            <li class="hidden"><a href="/home">Home</a></li>
+            <li class="hidden"><a href="/myLists">My Lists</a></li>
+            <li class="hidden"><a href="/favorites">Favorites</a></li>
+            <li class="hidden"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+        </ul>
+     
    </nav>
 
     <nav class="topNav">
         <a class="navactive" href="/home">Home</a>
         <a href="/myLists">My Lists</a>
         <a href="/favorites">Favorites</a>
-        <a class="logout" href="/logout">Logout</a>
+        <a class="logout" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
     </nav>
      
 

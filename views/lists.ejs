@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/d7ccb43ad1.js" crossorigin="anonymous"></script>
     <title>My Lists</title>
 </head>
 <body>
   
-    <div>
+    <div class="container">
+        <div class="mobile-header">
+            <span class="menu-btn"><i class="fa-solid fa-bars-staggered"></i></span>
+        </div>
+    
 
-    <nav class="mobilenav">
-        <a href="/logout">Logout</a>
+   <nav id="mobilenav-ct" class="hidden">
+        
+        <ul id="mobilenav" class="hidden">
+            <li class="hidden"><a href="/home">Home</a></li>
+            <li class="hidden"><a href="/myLists">My Lists</a></li>
+            <li class="hidden"><a href="/favorites">Favorites</a></li>
+            <li class="hidden"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+        </ul>
+     
    </nav>
+
 
     <nav class="topNav">
         <a href="/home">Home</a>
-        <a  class="navactive" href="/myLists">My Lists</a>
+        <a class="navactive" href="/myLists">My Lists</a>
         <a href="/favorites">Favorites</a>
         <a class="logout" href="/logout">Logout</a>
     </nav>
@@ -50,5 +63,6 @@
 </div>
 
     </div>
+    <script src="/js/main.js"></script>
 </body>
 </html>

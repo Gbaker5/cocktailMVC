@@ -14,6 +14,22 @@
 //    });
 //});
 
+//mobilenav toggle
+const mobileNavBtn = document.querySelector('.menu-btn');
+const mobilenav = document.querySelector('#mobilenav-ct');
+const mobileNav2 = document.getElementById('mobilenav');
+const mobileNavLinks = document.querySelectorAll('#mobilenav-ct li');
+
+
+mobileNavBtn.addEventListener('click', toggleMobileNav);
+
+function toggleMobileNav() {
+  console.log("Toggling mobile nav");
+    mobilenav.classList.toggle('hidden');
+    mobileNav2.classList.toggle('hidden');
+    mobileNavLinks.forEach(link => link.classList.toggle('hidden'));
+}
+
 //for toggling the ingredient list on and off on the home page and search results page
 const toggleBtn = document.getElementById('toggleIngredients');
 const ingredientBox = document.querySelector('.ingredientBoxes');

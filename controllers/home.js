@@ -366,7 +366,7 @@ module.exports = {
 
 
         //Load names of lists
-        const drinkLists = await Lists.find({ user: req.user.id })
+        const drinkLists = await Lists.find({ user: req.user.id }).lean()
 
         const drinkListsWithFlags = drinkLists.map(list => ({
           ...list,
@@ -506,10 +506,10 @@ module.exports = {
         
 
         if (!list) {
-            return  res.render('favorites.ejs', {drinks: []})
+            return  res.render('customList.ejs', {list: [], drinks: []})
             }
         else if (list.drinkIds.length === 0) {
-            return res.render('favorites.ejs', {drinks: []})
+            return res.render('customList.ejs', {list: [], drinks: []})
         }else{
             const requests = list.drinkIds.map(id =>
                 axios

@@ -35,6 +35,11 @@ app.use(
         mongoUrl: process.env.DB_STRING,  // or your connection string
         mongooseConnection: mongoose.connection, // optional in v4+
       }),
+      cookie: {
+      secure: false,     // 🔴 MUST be false on localhost
+      httpOnly: true,
+      sameSite: "lax",   // ✅ important for Chrome
+      },
     })
   );
 
