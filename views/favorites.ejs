@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/imgs/PD.png"
+    />
     <script src="https://kit.fontawesome.com/d7ccb43ad1.js" crossorigin="anonymous"></script>
 
     <title>Document</title>
@@ -39,10 +45,14 @@
     <div class="topFavorites-ct">
         <div class="glass-card favorites-card">
             <h2>Favorites</h2>
-        <% if(drinks.length > 0){ %>
-            <p>Here lies your <%=drinks.length %> favorite drinks...</p>
+        <% if(drinks.length <= 0){ %>
+             <p>You don't have any favorite drinks yet.</p>
+        <%} else if (drinks.length === 1){ %>
+
+            <p>Let's remake your 1 favorite drink...</p>
+            
         <% } else { %>
-            <p>You don't have any favorite drinks yet.</p>
+            <p>Let's remake your <%=drinks.length %> favorite drinks...</p>
         <% } %>
         </div>
         

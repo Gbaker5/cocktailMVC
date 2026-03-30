@@ -67,16 +67,7 @@ module.exports = {
     }
 
     },
-     
-
-
-
     
-   
-
-   
-   
-
     getFavorites: async (req,res) =>{
         let drinks = [];
         try{
@@ -208,9 +199,9 @@ module.exports = {
 
    
 
-    deleteFavorites: async (req,res) =>{
+   //deleteFavorites: async (req,res) =>{
 
-        res.render('favorites.ejs', {})
+   //    res.render('favorites.ejs', {})
 
-    }   
+   //}   
 }

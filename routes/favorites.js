@@ -7,7 +7,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get('/favorites', ensureAuth, favoritesController.getFavorites)
 router.put('/favorites/:id', ensureAuth, favoritesController.putFavorites)
-router.delete('/favorites/:id', ensureAuth, favoritesController.deleteFavorites)
+//router.delete('/favorites/:id', ensureAuth, favoritesController.deleteFavorites)
 
 
 
