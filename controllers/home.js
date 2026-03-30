@@ -211,7 +211,7 @@ module.exports = {
     .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
     .join(" ")
 
-    res.redirect(`/ingredient/${formatStr}`)
+    res.redirect(`/search/ingredient/${formatStr}`)
     },
 
     /////Ingredient search, two step fetch first to get drink IDs, second to get drink details in parallel, then transform data same as letter controller

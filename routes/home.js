@@ -17,9 +17,9 @@ router.post("/signup", authController.postSignup);
 router.get('/', homeController.getIndex) 
 router.get('/home', ensureAuth,homeController.getHome)
 
-router.get('/letter/:letter', ensureAuth,homeController.getLetterSearch)
-router.get('/ingredient', ensureAuth,homeController.redirectIngredient)
-router.get('/ingredient/:ingredient', ensureAuth,homeController.getIngredientSearch)
+//router.get('/letter/:letter', ensureAuth,homeController.getLetterSearch)
+//router.get('/ingredient', ensureAuth,homeController.redirectIngredient)
+//router.get('/ingredient/:ingredient', ensureAuth,homeController.getIngredientSearch)
 
 
 router.post('/myLists', ensureAuth,homeController.postLists)

@@ -10,7 +10,10 @@ const methodOverride = require('method-override');
 const morgan = require('morgan')
 
 const homeRoutes = require('./routes/home')
-//const todoRoutes = require('./routes/todos')
+const searchRoutes = require('./routes/search')
+//const listRoutes = require('./routes/lists')
+//const favoriteRoutes = require('./routes/favorites')
+
 
 require('dotenv').config({path: './config/.env'})
 
@@ -55,7 +58,9 @@ app.use(morgan('dev'))
 
 
 app.use('/', homeRoutes)
-//app.use('/todos', todoRoutes)
+app.use('/search', searchRoutes)
+//app.use('/myLists', listRoutes)
+//app.use('/favorites', favoriteRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

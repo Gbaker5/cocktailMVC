@@ -46,32 +46,32 @@
     <nav>
         
         <ul>
-            <a class="letter" href="/letter/a">A</a>
-            <a class="letter" href="/letter/b">B</a>
-            <a class="letter" href="/letter/c">C</a>
-            <a class="letter" href="/letter/d">D</a>
-            <a class="letter" href="/letter/e">E</a>
-            <a class="letter" href="/letter/f">F</a>  
-            <a class="letter" href="/letter/g">G</a>
-            <a class="letter" href="/letter/h">H</a>
-            <a class="letter" href="/letter/i">I</a>
-            <a class="letter" href="/letter/j">J</a>
-            <a class="letter" href="/letter/k">K</a>
-            <a class="letter" href="/letter/l">L</a>
-            <a class="letter" href="/letter/m">M</a>
-            <a class="letter" href="/letter/n">N</a>
-            <a class="letter" href="/letter/o">O</a>
-            <a class="letter" href="/letter/p">P</a>
-            <a class="letter" href="/letter/q">Q</a>
-            <a class="letter" href="/letter/r">R</a>
-            <a class="letter" href="/letter/s">S</a>
-            <a class="letter" href="/letter/t">T</a>
-            <a class="letter" href="/letter/u">U</a>
-            <a class="letter" href="/letter/v">V</a>
-            <a class="letter" href="/letter/w">W</a>
-            <a class="letter" href="/letter/x">X</a>
-            <a class="letter" href="/letter/y">Y</a>
-            <a class="letter" href="/letter/z">Z</a>
+            <a class="letter" href="/search/letter/a">A</a>
+            <a class="letter" href="/search/letter/b">B</a>
+            <a class="letter" href="/search/letter/c">C</a>
+            <a class="letter" href="/search/letter/d">D</a>
+            <a class="letter" href="/search/letter/e">E</a>
+            <a class="letter" href="/search/letter/f">F</a>  
+            <a class="letter" href="/search/letter/g">G</a>
+            <a class="letter" href="/search/letter/h">H</a>
+            <a class="letter" href="/search/letter/i">I</a>
+            <a class="letter" href="/search/letter/j">J</a>
+            <a class="letter" href="/search/letter/k">K</a>
+            <a class="letter" href="/search/letter/l">L</a>
+            <a class="letter" href="/search/letter/m">M</a>
+            <a class="letter" href="/search/letter/n">N</a>
+            <a class="letter" href="/search/letter/o">O</a>
+            <a class="letter" href="/search/letter/p">P</a>
+            <a class="letter" href="/search/letter/q">Q</a>
+            <a class="letter" href="/search/letter/r">R</a>
+            <a class="letter" href="/search/letter/s">S</a>
+            <a class="letter" href="/search/letter/t">T</a>
+            <a class="letter" href="/search/letter/u">U</a>
+            <a class="letter" href="/search/letter/v">V</a>
+            <a class="letter" href="/search/letter/w">W</a>
+            <a class="letter" href="/search/letter/x">X</a>
+            <a class="letter" href="/search/letter/y">Y</a>
+            <a class="letter" href="/search/letter/z">Z</a>
         </ul>             
 
             
@@ -85,7 +85,7 @@
         </ul>
 
          <ul class="inginputs">
-            <form action="/ingredient" method="GET">
+            <form action="/search/ingredient" method="GET">
             <input type="text" id="ingredientInput" name="ingredient">
             <button type="submit">Search By Ingredient</button>
             </form>
@@ -98,7 +98,7 @@
             <ul class="ingLeft">
                 <%for(let i=0; i<ingredientsOne.length; i++){%>
                     <li>
-                        <form action="/ingredient/<%=ingredientsOne[i]%>" method="GET">
+                        <form action="/search/ingredient/<%=ingredientsOne[i]%>" method="GET">
                             <button type="submit" class="ingButtons"><%= ingredientsOne[i] %></button>
                         </form>
                         
@@ -108,7 +108,7 @@
             <ul class="ingRight">
                 <%for(let j=0; j<ingredientsTwo.length; j++){%>
                     <li>
-                        <form action="/ingredient/<%=ingredientsTwo[j]%>" method="GET">
+                        <form action="/search/ingredient/<%=ingredientsTwo[j]%>" method="GET">
                             <button type="submit" class="ingButtons"><%= ingredientsTwo[j] %></button>
                         </form>
                     </li>
