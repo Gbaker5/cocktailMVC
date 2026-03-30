@@ -29,9 +29,9 @@ router.get('/home', ensureAuth,homeController.getHome)
 //router.delete('/myLists/:id', ensureAuth,homeController.deleteLists)
 
 
-router.get('/favorites', ensureAuth,homeController.getFavorites)
-router.put('/favorites/:id', ensureAuth,homeController.putFavorites)
-router.delete('/favorites/:id', ensureAuth,homeController.deleteFavorites)
+//router.get('/favorites', ensureAuth,homeController.getFavorites)
+//router.put('/favorites/:id', ensureAuth,homeController.putFavorites)
+//router.delete('/favorites/:id', ensureAuth,homeController.deleteFavorites)
 
 
 

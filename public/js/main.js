@@ -54,7 +54,7 @@ if (toggleBtn && ingredientBox) {
 //        console.log("Clicked favorite button for drink ID:", drinkId);
 //
 //        try {
-//            const response = await fetch(`/favorites/${drinkId}?_method=PUT`, {
+//            const response = await fetch(`/favorites/favorites/${drinkId}?_method=PUT`, {
 //                method: 'POST',
 //                headers: {
 //                    'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ document.querySelectorAll('.favorite-btn').forEach(button => {
     icon.classList.toggle('fa-martini-glass')
 
     try {
-      const res = await fetch(`/favorites/${drinkId}`, {
+      const res = await fetch(`/favorites/favorites/${drinkId}`, {
         method: 'PUT'
       })
 
