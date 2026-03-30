@@ -37,9 +37,15 @@
     </nav>
 
     <div class="topFavorites-ct">
-        <h2>Favorites</h2>
-
-        <p>Here lies your <%=drinks.length %> favorite drinks...</p>
+        <div class="glass-card favorites-card">
+            <h2>Favorites</h2>
+        <% if(drinks.length > 0){ %>
+            <p>Here lies your <%=drinks.length %> favorite drinks...</p>
+        <% } else { %>
+            <p>You don't have any favorite drinks yet.</p>
+        <% } %>
+        </div>
+        
     </div>
     
 
