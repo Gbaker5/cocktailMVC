@@ -19,7 +19,7 @@
         
         <ul id="mobilenav" class="hidden">
             <li class="hidden"><a href="/home">Home</a></li>
-            <li class="hidden"><a href="/myLists">My Lists</a></li>
+            <li class="hidden"><a href="/lists/myLists">My Lists</a></li>
             <li class="hidden"><a href="/favorites">Favorites</a></li>
             <li class="hidden"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
         </ul>
@@ -28,7 +28,7 @@
 
     <nav class="topNav">
         <a href="/home">Home</a>
-        <a href="/myLists">My Lists</a>
+        <a href="/lists/myLists">My Lists</a>
         <a href="/favorites">Favorites</a>
         <a class="logout" href="/logout">Logout</a>
     </nav>
@@ -167,7 +167,7 @@
                         <!--After choosing a list the animation scrolls back over to reveal the drink info-->
 
                         <div class="drinkList-ct ">
-                            <form action="/myLists" method="GET">
+                            <form action="/lists/myLists" method="GET">
                                 <button type="submit" class="create-list-btn">Create New List <i class="fa-solid fa-square-plus"></i> </button>
                             </form>
                             <%for(let j=0; j<drinkLists.length; j++){%>

@@ -19,7 +19,7 @@
         
         <ul id="mobilenav" class="hidden">
             <li class="hidden"><a href="/home">Home</a></li>
-            <li class="hidden"><a href="/myLists">My Lists</a></li>
+            <li class="hidden"><a href="/lists/myLists">My Lists</a></li>
             <li class="hidden"><a href="/favorites">Favorites</a></li>
             <li class="hidden"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
         </ul>
@@ -29,18 +29,18 @@
 
     <nav class="topNav">
         <a href="/home">Home</a>
-        <a class="navactive" href="/myLists">My Lists</a>
+        <a class="navactive" href="/lists/myLists">My Lists</a>
         <a href="/favorites">Favorites</a>
         <a class="logout" href="/logout">Logout</a>
     </nav>
     
       
 <div class="topList-ct">
-<div class=" glass-card">
+<div class="glass-card lists-card">
         <h2>My Lists</h2>
 
 
-        <form action="/myLists" method="POST">
+        <form action="/lists/myLists" method="POST">
             <input type="text" name="listName" placeholder="New List Name" required>
             <button type="submit">Create List</button>
         </form>
@@ -54,9 +54,9 @@
   <% } else { %>
     <% lists.forEach(list => { %>
       <div class="list-ct">
-        <a href="/myCustomList/<%= list._id %>"><%= list.name %></a>
+        <a href="/lists/myCustomList/<%= list._id %>"><%= list.name %></a>
 
-        <form action="/myLists/<%= list._id %>?_method=DELETE" method="POST">
+        <form action="/lists/myLists/<%= list._id %>?_method=DELETE" method="POST">
           <button type="submit">Delete</button>
         </form>
       </div>

@@ -1154,6 +1154,14 @@ ul{
   gap: 20px;
 }
 
+.lists-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
 .topList-ct{
   display:flex;
   justify-content:center;

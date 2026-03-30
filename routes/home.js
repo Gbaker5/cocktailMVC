@@ -22,11 +22,11 @@ router.get('/home', ensureAuth,homeController.getHome)
 //router.get('/ingredient/:ingredient', ensureAuth,homeController.getIngredientSearch)
 
 
-router.post('/myLists', ensureAuth,homeController.postLists)
-router.get('/myLists', ensureAuth,homeController.getLists)
-router.get('/myCustomList/:id', ensureAuth,homeController.getCustomList)
-router.put('/myLists/:id', ensureAuth,homeController.putLists)
-router.delete('/myLists/:id', ensureAuth,homeController.deleteLists)
+//router.post('/myLists', ensureAuth,homeController.postLists)
+//router.get('/myLists', ensureAuth,homeController.getLists)
+//router.get('/myCustomList/:id', ensureAuth,homeController.getCustomList)
+//router.put('/myLists/:id', ensureAuth,homeController.putLists)
+//router.delete('/myLists/:id', ensureAuth,homeController.deleteLists)
 
 
 router.get('/favorites', ensureAuth,homeController.getFavorites)

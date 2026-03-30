@@ -137,7 +137,7 @@ document.querySelectorAll('.drinkList-btn').forEach(button => {
     button.classList.toggle('in-list')
 
     try {
-      const res = await fetch(`/myLists/${listId}`, {
+      const res = await fetch(`/lists/myLists/${listId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

@@ -10,4 +10,4 @@ router.get('/letter/:letter', ensureAuth,homeController.getLetterSearch)
 router.get('/ingredient', ensureAuth,homeController.redirectIngredient)
 router.get('/ingredient/:ingredient', ensureAuth,homeController.getIngredientSearch)
 
-module.exports = router
+module.exports = router 

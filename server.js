@@ -11,7 +11,7 @@ const morgan = require('morgan')
 
 const homeRoutes = require('./routes/home')
 const searchRoutes = require('./routes/search')
-//const listRoutes = require('./routes/lists')
+const listRoutes = require('./routes/lists')
 //const favoriteRoutes = require('./routes/favorites')
 
 
@@ -59,7 +59,7 @@ app.use(morgan('dev'))
 
 app.use('/', homeRoutes)
 app.use('/search', searchRoutes)
-//app.use('/myLists', listRoutes)
+app.use('/lists', listRoutes)
 //app.use('/favorites', favoriteRoutes)
  
 app.listen(process.env.PORT, ()=>{
