@@ -61,7 +61,19 @@ app.use('/', homeRoutes)
 app.use('/search', searchRoutes)
 app.use('/lists', listRoutes)
 app.use('/favorites', favoriteRoutes)
+
+const PORT = process.env.PORT || 1255;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+//NPM START IS FOR RENDER
+//NPM RUN DEV IS FOR LOCALHOST
+
+
+
  
-app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
-})    
+//app.listen(process.env.PORT, ()=>{
+//    console.log('Server is running, you better catch it!')
+//})    
