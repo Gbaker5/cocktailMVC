@@ -34,7 +34,7 @@ postLists: async (req,res) => {
         
 
 
-        res.redirect('/myLists')
+        res.redirect('/lists/myLists')
     },
  putLists: async (req, res) => {
   const listId = req.params.id
