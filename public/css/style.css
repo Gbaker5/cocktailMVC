@@ -1050,13 +1050,13 @@ ul{
   border-color: rgba(255,255,255,0.3);
 }
 
-/* ACTIVE / FOCUSED STYLE (your gradient look) */
+/* ACTIVE / FOCUSED STYLE (your gradient look) 
 .drinkList-btn:focus,
 .drinkList-btn:active {
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   color: #aeefff;
   border: none;
-}
+}*/
 
 /* CREATE LIST = ALWAYS ACTIVE STYLE */
 .create-list-btn {
