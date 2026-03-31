@@ -74,44 +74,91 @@ if (toggleBtn && ingredientBox) {
 //});       
 
 //OPTIMISTIC UI UPDATE FOR FAVORITES
-document.querySelectorAll('.favorite-btn').forEach(button => {
-  button.addEventListener('click', async () => {
-    const drinkId = button.dataset.drinkId
+//document.querySelectorAll('.favorite-btn').forEach(button => {
+//  button.addEventListener('click', async () => {
+//    const drinkId = button.dataset.drinkId
+//
+//    // 🔥 OPTIMISTIC UI UPDATE (instant)
+//    button.classList.toggle('active')
+//
+//    const icon = button.querySelector('i')
+//    icon.classList.toggle('fa-martini-glass-empty')
+//    icon.classList.toggle('fa-martini-glass')
+//
+//    try {
+//      const res = await fetch(`/favorites/favorites/${drinkId}`, {
+//        method: 'PUT'
+//      })
+//
+//      const data = await res.json()
+//
+//      // ✅ OPTIONAL: sync with backend truth
+//      if (data.status === 'removed') {
+//        button.classList.remove('active')
+//        icon.classList.remove('fa-martini-glass')
+//        icon.classList.add('fa-martini-glass-empty')
+//      } else {
+//        button.classList.add('active')
+//        icon.classList.add('fa-martini-glass')
+//        icon.classList.remove('fa-martini-glass-empty')
+//      }
+//
+//    } catch (err) {
+//      console.error(err)
+//
+//      // ❌ rollback if request fails
+//      button.classList.toggle('active') 
+//      icon.classList.toggle('fa-martini-glass')
+//      icon.classList.toggle('fa-martini-glass-empty')
+//    }
+//  })
+//})
 
-    // 🔥 OPTIMISTIC UI UPDATE (instant)
-    button.classList.toggle('active')
 
-    const icon = button.querySelector('i')
-    icon.classList.toggle('fa-martini-glass-empty')
-    icon.classList.toggle('fa-martini-glass')
+button.addEventListener('click', async (e) => {
+  e.preventDefault()
+  e.stopPropagation()
 
-    try {
-      const res = await fetch(`/favorites/favorites/${drinkId}`, {
-        method: 'PUT'
-      })
+  if (button.disabled) return
+  button.disabled = true
 
-      const data = await res.json()
+  const drinkId = button.dataset.drinkId
 
-      // ✅ OPTIONAL: sync with backend truth
-      if (data.status === 'removed') {
-        button.classList.remove('active')
-        icon.classList.remove('fa-martini-glass')
-        icon.classList.add('fa-martini-glass-empty')
-      } else {
-        button.classList.add('active')
-        icon.classList.add('fa-martini-glass')
-        icon.classList.remove('fa-martini-glass-empty')
-      }
+  // optimistic update
+  button.classList.toggle('active')
 
-    } catch (err) {
-      console.error(err)
+  const icon = button.querySelector('i')
+  icon.classList.toggle('fa-martini-glass-empty')
+  icon.classList.toggle('fa-martini-glass')
 
-      // ❌ rollback if request fails
-      button.classList.toggle('active')
-      icon.classList.toggle('fa-martini-glass')
-      icon.classList.toggle('fa-martini-glass-empty')
+  try {
+    const res = await fetch(`/favorites/favorites/${drinkId}`, {
+      method: 'PUT'
+    })
+
+    const data = await res.json()
+
+    if (data.status === 'removed') {
+      button.classList.remove('active')
+      icon.classList.remove('fa-martini-glass')
+      icon.classList.add('fa-martini-glass-empty')
+    } else {
+      button.classList.add('active')
+      icon.classList.add('fa-martini-glass')
+      icon.classList.remove('fa-martini-glass-empty')
     }
-  })
+
+  } catch (err) {
+    console.error(err)
+
+    // rollback
+    button.classList.toggle('active')
+    icon.classList.toggle('fa-martini-glass')
+    icon.classList.toggle('fa-martini-glass-empty')
+  }
+
+  // 🔓 re-enable after request
+  button.disabled = false
 })
 
 
