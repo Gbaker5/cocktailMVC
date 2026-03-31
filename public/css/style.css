@@ -35,6 +35,10 @@ body {
   color: #fff;
 }
 
+html,body {
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
 .ct-ct{
   display:flex;
   justify-content:center;
