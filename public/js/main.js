@@ -114,7 +114,7 @@ if (toggleBtn && ingredientBox) {
 //  })
 //})
 
-
+document.querySelectorAll('.favorite-btn').forEach(button => {
 button.addEventListener('click', async (e) => {
   e.preventDefault()
   e.stopPropagation()
@@ -160,7 +160,7 @@ button.addEventListener('click', async (e) => {
   // 🔓 re-enable after request
   button.disabled = false
 })
-
+})
 
 ///Toggle the display of the custom list form on the myLists page
 document.querySelectorAll('.list-btn').forEach(btn => {
