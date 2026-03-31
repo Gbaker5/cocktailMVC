@@ -94,7 +94,7 @@ postLists: async (req,res) => {
             console.error(err)
         }   
 
-        res.redirect('/myLists')
+        res.redirect('/lists/myLists')
 
     },
      getCustomList: async (req,res) => {

@@ -156,11 +156,15 @@
                         <img src="<%= drinks[i].image %>" alt="" class="cocktailImg">
                         <div class="interaction-ct">
                             
-                                <button  class="favorite-btn <%=(drinks[i].favorited ? 'favorited' : '')%>"  data-drink-id="<%=drinks[i].idDrink%>"  type="button"><i class="fa-solid fa-martini-glass-empty"></i></button>
-                            
+                                <button  
+                                class="favorite-btn <%=(drinks[i].favorited ? 'favorited' : '')%>"  
+                                data-drink-id="<%=drinks[i].idDrink%>"  
+                                type="button"><i class="fa-solid fa-martini-glass-empty"></i></button>
+                                <span>Add to favorites </span>
 
                           
                                 <button  class="list-btn" type="button"><i class="fa-regular fa-rectangle-list"></i></button>
+                                <span>Add to List</span>
                                 
                         </div>
                         
