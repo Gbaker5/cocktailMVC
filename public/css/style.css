@@ -12,7 +12,7 @@
   border: 1px solid white
 }
 
-/*body {
+body {
   background: linear-gradient(135deg, #681A1A, #1A6868);
   min-height: 100vh;
   display: flex;
@@ -20,36 +20,7 @@
   align-items: flex-start;
   padding: 2rem;
   color: #fff;
-
-
-}*/
-body {
-  margin: 0;
-  padding: 0; /* ❗ remove this */
-
-  background: linear-gradient(135deg, #681A1A, #1A6868);
-
- 
-  min-height: 100dvh; /* 👈 KEY FIX */
-
-  color: #fff;
-}
-
-html{
-  height: 100%;
-}
-
-html,body {
-  overflow-x: hidden; /* prevent horizontal scroll */
-}
-
-.ct-ct{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding: 2rem;
-  min-height:100dvh;
-
+  margin: 0
 }
 
 /* Container */
