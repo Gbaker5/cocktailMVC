@@ -73,7 +73,7 @@ if (toggleBtn && ingredientBox) {
 //    });
 //});       
 
-//OPTIMISTIC UI UPDATE FOR FAVORITES
+
 //document.querySelectorAll('.favorite-btn').forEach(button => {
 //  button.addEventListener('click', async () => {
 //    const drinkId = button.dataset.drinkId
@@ -114,6 +114,7 @@ if (toggleBtn && ingredientBox) {
 //  })
 //})
 
+//OPTIMISTIC UI UPDATE FOR FAVORITES
 document.querySelectorAll('.favorite-btn').forEach(button => {
 button.addEventListener('click', async (e) => {
   e.preventDefault()
@@ -176,7 +177,19 @@ document.querySelectorAll('.list-btn').forEach(btn => {
 
 //OPTIMISTIC UI UPDATE FOR ADDING/REMOVING DRINKS FROM CUSTOM LISTS
 document.querySelectorAll('.drinkList-btn').forEach(button => {
-  button.addEventListener('click', async () => {
+
+  // 🛡️ prevent duplicate listeners
+  if (button.dataset.listenerAttached) return
+  button.dataset.listenerAttached = "true"
+
+  button.addEventListener('click', async (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    // 🛑 prevent spam / double fire
+    if (button.disabled) return
+    button.disabled = true
+
     const drinkId = button.dataset.drinkId
     const listId = button.dataset.listId
 
@@ -194,7 +207,7 @@ document.querySelectorAll('.drinkList-btn').forEach(button => {
 
       const data = await res.json()
 
-      // ✅ Sync with backend truth
+      // ✅ sync with backend truth
       if (data.status === 'removed') {
         button.classList.remove('in-list')
       } else {
@@ -204,8 +217,48 @@ document.querySelectorAll('.drinkList-btn').forEach(button => {
     } catch (err) {
       console.error(err)
 
-      // ❌ rollback on failure
+      // ❌ rollback
       button.classList.toggle('in-list')
     }
+
+    // 🔓 re-enable
+    button.disabled = false
   })
 })
+
+
+
+//document.querySelectorAll('.drinkList-btn').forEach(button => {
+//  button.addEventListener('click', async () => {
+//    const drinkId = button.dataset.drinkId
+//    const listId = button.dataset.listId
+//
+//    // 🔥 OPTIMISTIC UPDATE
+//    button.classList.toggle('in-list')
+//
+//    try {
+//      const res = await fetch(`/lists/myLists/${listId}`, {
+//        method: 'PUT',
+//        headers: {
+//          'Content-Type': 'application/json'
+//        },
+//        body: JSON.stringify({ drinkId })
+//      })
+//
+//      const data = await res.json()
+//
+//      // ✅ Sync with backend truth
+//      if (data.status === 'removed') {
+//        button.classList.remove('in-list')
+//      } else {
+//        button.classList.add('in-list')
+//      }
+//
+//    } catch (err) {
+//      console.error(err)
+//
+//      // ❌ rollback on failure
+//      button.classList.toggle('in-list')
+//    }
+//  })
+//})
