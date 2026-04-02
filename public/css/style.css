@@ -954,11 +954,63 @@ ul{
     text-shadow: 0 0 8px rgba(255, 77, 77, 0.8);
 }
 
+
+.favdsc, .listdsc{
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 /* Active state for favorited cocktails Need? */
 .favorite-btn.active i {
   color: #ff3040;
   transform: scale(1.2);
   transition: all 0.2s ease;
+}
+
+.favorite-btn{
+  position: relative;
+}
+
+.favorite-btn::after {
+  white-space: nowrap;
+  content: "Add to favorites";
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  color:#4AD1D1;
+  opacity: 0;
+}
+
+.list-btn{
+  position:relative;
+}
+
+.list-btn:hover::after {
+  opacity: 1;
+}
+
+.list-btn::after {
+  white-space: nowrap;
+  content: "Add to List";
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  color:#4AD1D1;
+  opacity: 0;
+}
+
+.favorite-btn:hover::after {
+  opacity: 1;
 }
 
 /* Right side (text/info) */
