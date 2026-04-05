@@ -133,12 +133,15 @@ getLetterSearch: async (req,res) => {
           drinkSet: new Set(list.drinkIds) // faster lookup
         }))
 
+        const formatLetter = letter.toUpperCase()
+
 
       res.render('searches.ejs', { 
         drinks: drinksWithFavorites, 
         ingredientsOne: ingredientsOne || [], 
         ingredientsTwo: ingredientsTwo || [], 
-        drinkLists: drinkListsWithFlags || []
+        drinkLists: drinkListsWithFlags || [],
+        inputValue: formatLetter || ''
     })
     } catch (err) {
   console.error(err)
@@ -146,7 +149,8 @@ getLetterSearch: async (req,res) => {
     drinks: [],
     ingredientsOne: [],
     ingredientsTwo: [],
-    drinkLists: []
+    drinkLists: [],
+    inputValue: ''
   })
 }
 
@@ -330,7 +334,8 @@ redirectIngredient: (req, res) => {
         drinks: drinksWithFavorites, 
         ingredientsOne: ingredientsOne || [], 
         ingredientsTwo: ingredientsTwo || [] , 
-        drinkLists: drinkListsWithFlags || []
+        drinkLists: drinkListsWithFlags || [],
+        inputValue: formatStr || '' 
     })
 
     } catch (err) {
@@ -339,7 +344,8 @@ redirectIngredient: (req, res) => {
     drinks: [],
     ingredientsOne: [],
     ingredientsTwo: [],
-    drinkLists: []
+    drinkLists: [],
+    inputValue: ''
   })
 }
 
