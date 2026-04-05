@@ -133,7 +133,8 @@ getLetterSearch: async (req,res) => {
           drinkSet: new Set(list.drinkIds) // faster lookup
         }))
 
-        const formatLetter = letter.toUpperCase()
+        //const formatLetter = letter.toUpperCase()
+        const formatLetter = (letter || "").trim().toUpperCase();
 
 
       res.render('searches.ejs', { 
@@ -141,7 +142,7 @@ getLetterSearch: async (req,res) => {
         ingredientsOne: ingredientsOne || [], 
         ingredientsTwo: ingredientsTwo || [], 
         drinkLists: drinkListsWithFlags || [],
-        inputValue: formatLetter || ''
+        inputValue: formatLetter || ""
     })
     } catch (err) {
   console.error(err)
@@ -150,7 +151,7 @@ getLetterSearch: async (req,res) => {
     ingredientsOne: [],
     ingredientsTwo: [],
     drinkLists: [],
-    inputValue: ''
+    inputValue: ""
   })
 }
 
@@ -159,11 +160,22 @@ getLetterSearch: async (req,res) => {
     },
 redirectIngredient: (req, res) => {
 
-    const inputValue = req.query.ingredient
+    const inputValue = req.query.ingredient || ""
+
+    if (!inputValue.trim()) {
+  return res.render('searches.ejs', {
+    drinks: [],
+    ingredientsOne: [],
+    ingredientsTwo: [],
+    drinkLists: [],
+    inputValue: ""
+  });
+}
 
    const formatStr = inputValue
   .trim()              // removes leading + trailing spaces
   .split(/\s+/)        // handles multiple spaces between words
+  .filter(Boolean) // 👈 prevents empty strings
   .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
   .join(" ");          // keeps a single space between words
 
@@ -212,6 +224,7 @@ redirectIngredient: (req, res) => {
 
       const inputValue = req.params.ingredient
             //console.log("Raw input:", inputValue)
+      
 
       // format input (same as your frontend)
       const formatStr = inputValue
