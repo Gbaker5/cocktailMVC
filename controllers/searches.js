@@ -157,10 +157,11 @@ redirectIngredient: (req, res) => {
 
     const inputValue = req.query.ingredient
 
-    const formatStr = inputValue
-    .split(" ")
-    .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ")
+   const formatStr = inputValue
+  .trim()              // removes leading + trailing spaces
+  .split(/\s+/)        // handles multiple spaces between words
+  .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+  .join(" ");          // keeps a single space between words
 
     res.redirect(`/search/ingredient/${formatStr}`)
     },
